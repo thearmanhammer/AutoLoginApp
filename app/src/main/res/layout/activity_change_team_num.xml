@@ -25,11 +25,11 @@
         android:id="@+id/newIdEdit"
         android:textSize="25sp"
 
-        android:inputType="number"
         android:textColorHint="#b3b3b3"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/newId"
-        android:layout_toEndOf="@+id/newId" />
+        android:layout_toEndOf="@+id/newId"
+        android:inputType="text" />
 
     <Button
         android:layout_width="wrap_content"

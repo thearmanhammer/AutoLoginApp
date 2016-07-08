@@ -35,7 +35,7 @@ public class Constants {
         daVH.put("N1", 859);
         daVH.put("N7", 1432);
         daVH.put("N6N7", 1335);
-        daVH.put("WedAStart", 859); //TODO : FINISH DAVINCI HIGH FROM HERE (INCLUDING HERE)
+        daVH.put("WedAStart", 859);
         daVH.put("WedAEnd", 1430);
         daVH.put("WedN1", 859);
         daVH.put("WedN7", 1430);

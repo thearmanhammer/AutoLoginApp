@@ -41,19 +41,42 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Viewer"
-        android:id="@+id/viewerButton"
-        android:layout_alignParentBottom="true"
+        android:text="SignIn Another Person"
+        android:id="@+id/SIOtherButton"
+        android:onClick="signInOther"
+        android:layout_above="@+id/decreaseHoursButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use Location"
+        android:id="@+id/locationSwitch"
+        android:layout_marginBottom="46dp"
+        android:checked="true"
+        android:layout_above="@+id/SIOtherButton"
+        android:layout_centerHorizontal="true"
+        android:onClick="processSwitch" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignIn Another Person"
-        android:id="@+id/SIOtherButton"
+        android:text="Decrease Hours"
+        android:id="@+id/decreaseHoursButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="decreaseHours" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manual SignIn"
+        android:id="@+id/manualButton"
         android:layout_above="@+id/numButton"
-        android:layout_centerHorizontal="true"
-        android:onClick="signInOther" />
+        android:layout_alignRight="@+id/numButton"
+        android:layout_alignEnd="@+id/numButton"
+        android:onClick="manualSignIn" />
 
 </RelativeLayout>

@@ -24,9 +24,15 @@
         <service
             android:name=".TrackingService"
             android:exported="false" />
+        <service
+            android:name=".NotificationLogOut"
+            android:exported="false" />
 
         <activity android:name=".ChangeTeamNumber" />
-        <activity android:name=".signInOther"></activity>
+        <activity android:name=".signInOther" />
+        <activity android:name=".signInOther2" />
+        <activity android:name=".decreaseHours" />
+        <activity android:name=".ManualSignIn"></activity>
     </application>
 
 </manifest>

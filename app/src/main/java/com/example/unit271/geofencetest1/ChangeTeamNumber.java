@@ -14,34 +14,62 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import java.util.ArrayList;
+
 public class ChangeTeamNumber extends AppCompatActivity {
 
     public static String filename = "NumberHolder";
     SharedPreferences teamNumData;
-    private int teamNumber;
+    private String teamID;
     private String selection;
     private CheckBox cb7;
     private CheckBox cb6;
     private CheckBox cb1;
+    ArrayList<String> teamNameList2;
     Boolean free1;
     Boolean free6;
     Boolean free7;
     String schoolName;
     RadioButton rb;
+    Firebase dataRef5, dataRef6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_team_num);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        Firebase.setAndroidContext(this);
         setTitle("Setup");
+        teamNameList2 = new ArrayList<String>();
+        teamNameList2.clear();
+        dataRef5 = new Firebase("https://loginapptestcc.firebaseio.com/");
+        dataRef6 = dataRef5.child("People");
+
+        dataRef6.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot personSnapshot: dataSnapshot.getChildren()) {
+                    teamNameList2.add(personSnapshot.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
         cb1 = (CheckBox) findViewById(R.id.checkPer1);
         cb6 = (CheckBox) findViewById(R.id.checkPer6);
         cb7 = (CheckBox) findViewById(R.id.checkPer7);
 
         teamNumData = getSharedPreferences(filename, 0);
-        teamNumber = teamNumData.getInt("newNumKey", 000);
+        teamID = teamNumData.getString("newIDKey", "NONE");
         free1 = teamNumData.getBoolean("free1", false);
         free6 = teamNumData.getBoolean("free6", false);
         free7 = teamNumData.getBoolean("free7", false);
@@ -72,9 +100,9 @@ public class ChangeTeamNumber extends AppCompatActivity {
         } else if(schoolName.equals("none")){
         }
 
-        if(teamNumber != 000){
+        if(!teamID.equals("NONE")){
             EditText et = (EditText) findViewById(R.id.newIdEdit);
-            et.setText(String.valueOf(teamNumber));
+            et.setText(teamID);
         }
 
     }
@@ -82,6 +110,7 @@ public class ChangeTeamNumber extends AppCompatActivity {
     public void onSaveClick(View view){
         SharedPreferences.Editor editor = teamNumData.edit();
         RadioGroup rGroup = (RadioGroup) findViewById(R.id.radioGroup1);
+        boolean newPersonFirebase = true;
         if(rGroup.getCheckedRadioButtonId() != -1){
             int id = rGroup.getCheckedRadioButtonId();
             View radioButton = rGroup.findViewById(id);
@@ -97,23 +126,28 @@ public class ChangeTeamNumber extends AppCompatActivity {
         EditText newIdText = (EditText) findViewById(R.id.newIdEdit);
         String changeToString = newIdText.getText().toString();
         if(changeToString.length() > 0){
-            int changeToNumber = Integer.parseInt(changeToString);
-            if(changeToNumber != 0){
-               editor.putInt("newNumKey", changeToNumber);
-                if(!teamNumData.getBoolean("setupComplete", false)) {
-                    editor.putBoolean("setupComplete", true);
-                }
-                editor.commit();
-                Toast.makeText(getApplicationContext(), ("New ID : " + changeToNumber),
-                        Toast.LENGTH_SHORT).show();
-
-                Intent returnIntent = new Intent(this, MainActivity.class);
-                startActivity(returnIntent);
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Invalid Entry",
-                        Toast.LENGTH_SHORT).show();
+            if(!teamNumData.getBoolean("setupComplete", false)) {
+                editor.putBoolean("setupComplete", true);
             }
+            for (int a = 0; a <= teamNameList2.size() - 1; a++) {
+                if (changeToString.equals(teamNameList2.get(a))) {
+                    newPersonFirebase = false;
+                }
+            }
+            if(newPersonFirebase){
+                dataRef5.child("People").child(changeToString).child("CurrentlySignedInRobotics").setValue(false);
+                dataRef5.child("People").child(changeToString).child("CurrentlySignedInFM").setValue(false);
+                dataRef5.child("People").child(changeToString).child("CurrentlySignedInCompetition").setValue(false);
+                dataRef5.child("People").child(changeToString).child("SubtractHoursRobotics").setValue(0);
+                dataRef5.child("People").child(changeToString).child("SubtractHoursCompetition").setValue(0);
+                dataRef5.child("People").child(changeToString).child("SubtractHoursFM").setValue(0);
+            }
+            editor.putString("newIDKey", changeToString);
+            editor.commit();
+            Toast.makeText(getApplicationContext(), ("New ID : " + changeToString),
+                    Toast.LENGTH_SHORT).show();
+            Intent returnIntent = new Intent(this, MainActivity.class);
+            startActivity(returnIntent);
         } else {
             Toast.makeText(getApplicationContext(), "Invalid Entry",
                     Toast.LENGTH_SHORT).show();

@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,14 +14,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -36,13 +33,6 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.security.Provider;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -59,21 +49,26 @@ public class TrackingService extends Service implements
     public LocationRequest mLocationRequest;
     public Location mCurrentLocation;
     public boolean timerNotificationState;
+    ValueEventListener personListenerObject;
     public int normStart, normEnd, wedStart, wedEnd, thursStart, thursEnd;
     public boolean nPer1, nPer6, nPer7;
     CountDownTimer dTimer1;
-    int numDataReturned;
+    String teamID;
     String weekDay;
     final Calendar calendar = Calendar.getInstance();
     SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.US);
     HashMap school;
     SharedPreferences teamNumData;
+    Firebase personDirectory;
     public static String filename = "NumberHolder";
     public boolean isRunning;
     final NotificationCompat.Builder loginBuilder = new NotificationCompat.Builder(this);
     final NotificationCompat.Builder logoutBuilder = new NotificationCompat.Builder(this);
     private String schoolName;
     public boolean rangeCheckerA;
+    public boolean rangeCheckerB;
+    int setInitialRange;
+    NotificationManager mNotificationManager;
 
     @Override
     public void onCreate() {
@@ -87,20 +82,20 @@ public class TrackingService extends Service implements
     public int onStartCommand(Intent intent, int flags, int startId) {
         Firebase.setAndroidContext(this);
         Log.i("SERVICE1", "Service onStartCommand");
+        setInitialRange = 0;
         isRunning = false;
         teamNumData = getSharedPreferences(filename, 0);
-        numDataReturned = teamNumData.getInt("newNumKey", 000);
+        teamID = teamNumData.getString("newIDKey", "NONE");
+        personDirectory = new Firebase("https://loginapptestcc.firebaseio.com/People/" + teamID);
         personListener();
 
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        Intent resultIntent = new Intent(this, MainActivity.class);
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
-
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-
+        Intent resultIntent = new Intent(this, NotificationLogOut.class);
+        PendingIntent contentIntent = PendingIntent.getService(this,
+                0, resultIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Constants constInstance = new Constants();
         constInstance.initializeMaps();
         schoolName = teamNumData.getString("schoolName", "NONE");
@@ -134,15 +129,15 @@ public class TrackingService extends Service implements
 
 
         loginBuilder.setContentTitle("1678 Login");
-        loginBuilder.setContentText(numDataReturned + ", you have been signed in to Citrus Circuits");
-        loginBuilder.setContentIntent(resultPendingIntent);
+        loginBuilder.setContentText(teamID + ", you have been signed in to Citrus Circuits");
+        loginBuilder.setContentIntent(contentIntent);
         loginBuilder.setSmallIcon(R.drawable.check);
         loginBuilder.setSound(alarmSound);
         loginBuilder.setLights(Color.GREEN, 500, 1000);
+        loginBuilder.setAutoCancel(true);
 
         logoutBuilder.setContentTitle("1678 Logout");
-        logoutBuilder.setContentText(numDataReturned + ", you have been signed out of Citrus Circuits");
-        logoutBuilder.setContentIntent(resultPendingIntent);
+        logoutBuilder.setContentText(teamID + ", you have been signed out of Citrus Circuits");
         logoutBuilder.setSmallIcon(R.drawable.doublecheck);
         logoutBuilder.setSound(alarmSound);
         logoutBuilder.setLights(Color.GREEN, 500, 1000);
@@ -161,16 +156,22 @@ public class TrackingService extends Service implements
             }
 
             public void onFinish() {
-                for(int a = 0; a <= 7; a++)
-                    isRunning = false;
+                for(int a = 0; a <= 2; a++) {
                     Log.i("onFinish", "sendToForm");
-                sendToForm();
-                if(timerNotificationState){
-                    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    mNotificationManager.notify(0, loginBuilder.build());
+                }
+                isRunning = false;
+                rangeCheckerA = teamNumData.getBoolean("rangeBoolean", true); // should return true here after first use
+                if(!(rangeCheckerB == rangeCheckerA)) {
+                    sendToForm(rangeCheckerA);
+                    if(timerNotificationState){
+                        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0, loginBuilder.build());
+                    } else {
+                        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0, logoutBuilder.build());
+                    }
                 } else {
-                    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    mNotificationManager.notify(0, logoutBuilder.build());
+                    Log.i("onFinish", "RangeDisagreement");
                 }
             }
         };
@@ -181,9 +182,17 @@ public class TrackingService extends Service implements
             Log.i("LOGS1", "GOOGLEAPICLIENTISNULL");
             mGoogleApiClient.connect();
         }
-
-
         return Service.START_STICKY;
+    }
+
+    @Override
+    public void onDestroy(){
+        Log.i("TrackingService", "ONDESTROY");
+        stopLocationUpdates();
+        personDirectory.removeEventListener(personListenerObject);
+        Toast.makeText(getApplicationContext(), "Tracking Disabled.",
+                Toast.LENGTH_SHORT).show();
+        super.onDestroy();
     }
 
 
@@ -191,19 +200,14 @@ public class TrackingService extends Service implements
     public void onConnected(@Nullable Bundle bundle) {
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
-        if(mLastLocation != null) {
-//            latView.setText(mLastLocation.getLatitude() + "");
-//            latView.setTextSize(20);
-//            longView.setText(mLastLocation.getLongitude() + "");
-//            longView.setTextSize(20);
-        }
         createLocationRequest();
 
-        Log.i("MAINACTIVTY", "onConnectedComplete");
+        Log.i("TRACKINGSERVICE", "onConnectedComplete");
     }
 
     protected void startLocationUpdates() {
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+        Log.i("TRACKINGSERVICE", "STARTING LOCATION UPDATES");
 
     }
 
@@ -232,6 +236,7 @@ public class TrackingService extends Service implements
 
     @Override
     public void onLocationChanged(Location location) {
+        Log.i("TRACKINGSERVICE", "ONLOCATIONCHANGED");
         mLastLocation = mCurrentLocation;
         mCurrentLocation = location;
 
@@ -247,7 +252,7 @@ public class TrackingService extends Service implements
         int hourTimeInt = Integer.parseInt(hourString);
         int minuteTimeInt = Integer.parseInt(minuteString);
         int currentTime = (hourTimeInt * 100) + minuteTimeInt;
-
+        rangeCheckerA = teamNumData.getBoolean("rangeBoolean", false);
         if (!rangeCheckerA && (locLatitude >= 38.55608987 && locLatitude <= 38.557) && (locLongitude >= -121.7522 && locLongitude <= -121.75105237)) {
             if (weekDay.equals("Wednesday")) {
                 if ((currentTime < wedStart) || (currentTime > wedEnd)) {
@@ -256,6 +261,7 @@ public class TrackingService extends Service implements
                     editor.putBoolean("rangeBoolean", true);
                     editor.commit();
                     timerNotificationState = true;
+
                     if (isRunning) {
                         Log.i("DTIMER", "CANCELLING");
                         dTimer1.cancel();
@@ -338,26 +344,27 @@ public class TrackingService extends Service implements
         }
     }
 
-    public void sendToForm(){
-        final int tmpTeamNumber = numDataReturned;
-        final boolean tmpRangeCheckerA = rangeCheckerA;
-        //TODO : Create team number from shared preferences
+    public void sendToForm(boolean rangeCheckerBoolean){
+        final String tmpTeamID = teamID;
+        final boolean tmpRangeCheckerA = rangeCheckerBoolean;
         new Thread() {
             @Override
             public void run() {
                 Date date = new Date(System.currentTimeMillis());
-                SimpleDateFormat uploadFormatter = new SimpleDateFormat("yyyy-MM-dd-HHmm", Locale.US);
+                SimpleDateFormat uploadFormatter = new SimpleDateFormat("MM-dd-yyyy-HHmm", Locale.US);
                 String uploadDate = uploadFormatter.format(date);
-
-                Firebase dataRef = new Firebase("https://cc-sign-in-out-app.firebaseio.com/#");
-                Firebase personRef = dataRef.child(String.valueOf(tmpTeamNumber));
+                LoginoutObject loginout = new LoginoutObject();
+                loginout.setTime(uploadDate);
+                loginout.setLocation("Robotics");
+                Firebase dataRef = new Firebase("https://loginapptestcc.firebaseio.com/");
                 if(tmpRangeCheckerA){
-                    personRef.setValue("CurrentlySignedIn", false);
-                    personRef.child(uploadDate).setValue("Out");
+                    loginout.setAction("In");
+                    dataRef.child("People").child(tmpTeamID).child("CurrentlySignedInRobotics").setValue(true);
                 } else {
-                    personRef.setValue("CurrentlySignedIn", true);
-                    personRef.child(uploadDate).setValue("In");
+                    loginout.setAction("Out");
+                    dataRef.child("People").child(tmpTeamID).child("CurrentlySignedInRobotics").setValue(false);
                 }
+                dataRef.child("People").child(tmpTeamID).child("Logins").push().setValue(loginout);
             }
         }.start();
     }
@@ -373,15 +380,20 @@ public class TrackingService extends Service implements
     }
 
     public void personListener(){
-        Firebase dataRef = new Firebase("https://cc-sign-in-out-app.firebaseio.com/#");
-        Firebase personRef = dataRef.child(String.valueOf(numDataReturned)).child("CurrentlySignedIn");
-        personRef.addValueEventListener(new ValueEventListener() {
+        personListenerObject = (new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot != null) {
-                    rangeCheckerA = (Boolean) dataSnapshot.getValue();
-                } else {
-                    rangeCheckerA = false; //Works because it should always sign in after first use
+                for (DataSnapshot infoSnapshot : dataSnapshot.getChildren()) {
+                    if (infoSnapshot.getKey().equals("CurrentlySignedInRobotics")) {
+                        rangeCheckerB = (boolean) infoSnapshot.getValue();
+                        if (setInitialRange == 0) {
+                            SharedPreferences.Editor editor = teamNumData.edit();
+                            editor.putBoolean("rangeBoolean", (boolean) infoSnapshot.getValue());
+                            editor.commit();
+                            setInitialRange++;
+                            Log.i("INITIALIZERANGEA", String.valueOf(teamNumData.getBoolean("rangeBoolean", false)));
+                        }
+                    }
                 }
             }
 
@@ -390,6 +402,7 @@ public class TrackingService extends Service implements
 
             }
         });
+        personDirectory.addValueEventListener(personListenerObject);
     }
 }
 
