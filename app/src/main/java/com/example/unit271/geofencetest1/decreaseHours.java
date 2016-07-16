@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -62,22 +63,48 @@ public class decreaseHours extends AppCompatActivity {
     }
 
     public void onDecreaseHoursClick(View view){
-        if(!String.valueOf(decreaseHoursText.getText()).equals("")) {
-            dataRef6.child("SubtractHoursRobotics").setValue(SubtractHoursRobotics + Integer.parseInt(String.valueOf(decreaseHoursText.getText())));
-        } else {
-            dataRef6.child("SubtractHoursRobotics").setValue(SubtractHoursRobotics);
+        String strValRobotics = String.valueOf(decreaseHoursText.getText());
+        String strValFM = String.valueOf(decreaseHoursTextFM.getText());
+        String strValCompetition = String.valueOf(decreaseHoursTextCompetition.getText());
+        int intValRobotics = 0;
+        int intValFM = 0;
+        int intValCompetition = 0;
+        boolean numFormatException = false;
+        try {
+            if (!strValRobotics.equals("")) {
+                intValRobotics = Integer.parseInt(strValRobotics);
+            }
+            if (!strValFM.equals("")) {
+                intValFM = Integer.parseInt(strValFM);
+            }
+            if (!strValCompetition.equals("")) {
+                intValCompetition = Integer.parseInt(strValCompetition);
+            }
+        } catch(NumberFormatException nfe){
+            Toast.makeText(getBaseContext(), "Use Numbers Only.", Toast.LENGTH_SHORT).show();
+            //nfe.printStackTrace();
+            numFormatException = true;
         }
-        if(!String.valueOf(decreaseHoursTextFM.getText()).equals("")) {
-            dataRef6.child("SubtractHoursFM").setValue(SubtractHoursFM + Integer.parseInt(String.valueOf(decreaseHoursTextFM.getText())));
-        } else {
-            dataRef6.child("SubtractHoursFM").setValue(SubtractHoursFM);
+        if(intValRobotics >= 0 && intValFM >= 0 && intValCompetition >= 0 && !numFormatException) {
+            if (!strValRobotics.equals("")) {
+                dataRef6.child("SubtractHoursRobotics").setValue(SubtractHoursRobotics + intValRobotics);
+            } else {
+                dataRef6.child("SubtractHoursRobotics").setValue(SubtractHoursRobotics);
+            }
+            if (!strValFM.equals("")) {
+                dataRef6.child("SubtractHoursFM").setValue(SubtractHoursFM + intValFM);
+            } else {
+                dataRef6.child("SubtractHoursFM").setValue(SubtractHoursFM);
+            }
+            if (!strValCompetition.equals("")) {
+                dataRef6.child("SubtractHoursCompetition").setValue(SubtractHoursCompetition + intValCompetition);
+            } else {
+                dataRef6.child("SubtractHoursCompetition").setValue(SubtractHoursCompetition);
+            }
+            Intent returnIntent = new Intent(this, MainActivity.class);
+            startActivity(returnIntent);
+        } else if(!numFormatException){
+            Toast.makeText(getBaseContext(), "Cannot Subtract Negative Hours.", Toast.LENGTH_SHORT).show();
         }
-        if(!String.valueOf(decreaseHoursTextCompetition.getText()).equals("")) {
-            dataRef6.child("SubtractHoursCompetition").setValue(SubtractHoursCompetition + Integer.parseInt(String.valueOf(decreaseHoursTextCompetition.getText())));
-        } else {
-            dataRef6.child("SubtractHoursCompetition").setValue(SubtractHoursCompetition);
-        }
-        Intent returnIntent = new Intent(this, MainActivity.class);
-        startActivity(returnIntent);
     }
 }

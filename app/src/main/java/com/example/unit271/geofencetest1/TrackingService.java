@@ -252,6 +252,7 @@ public class TrackingService extends Service implements
         int hourTimeInt = Integer.parseInt(hourString);
         int minuteTimeInt = Integer.parseInt(minuteString);
         int currentTime = (hourTimeInt * 100) + minuteTimeInt;
+        Log.i("NORMTIMENORMTIME", normStart + "    " + normEnd);
         rangeCheckerA = teamNumData.getBoolean("rangeBoolean", false);
         if (!rangeCheckerA && (locLatitude >= 38.55608987 && locLatitude <= 38.557) && (locLongitude >= -121.7522 && locLongitude <= -121.75105237)) {
             if (weekDay.equals("Wednesday")) {
@@ -307,6 +308,7 @@ public class TrackingService extends Service implements
                     isRunning = true;
                 }
             } else {
+                Log.i("NORMTIMENORMTIME", normStart + "    " + normEnd);
                 if ((currentTime < normStart) || (currentTime > normEnd)) {
                     Log.i("RANGE", "WITHIN RANGE");
                     SharedPreferences.Editor editor = teamNumData.edit();

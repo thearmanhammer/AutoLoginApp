@@ -37,7 +37,8 @@
         android:hint="Decrease FM Hours"
         android:textSize="25sp"
         android:layout_below="@+id/hoursEditText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:inputType="number" />
 
     <EditText
         android:layout_width="wrap_content"
