@@ -1,2 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_29949450d352cb44420c6e9fc743217cff28feff.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-8.4.0_a6fc5ad0be0c90e1ccde09e0ffa639dc00406aa8.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wearable-8.4.0_062de5338af45246295d6364357d8e493f49d0aa.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-fitness-8.4.0_05b6636baa4ea1a25719e8198e544d7cca2370ab.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-8.4.0_af3189ae64fbfe70f9e704371b968c32404943aa.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-location-8.4.0_6b705f546e1c399251a9bea2dd6499a81789dbba.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-measurement-8.4.0_0abf93466bbb43dbeedfc0b273f0b6b28dba9a8d.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-plus-8.4.0_39b0706101cce1f8fc2505d5864926a23a176596.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-vision-8.4.0_0e25365d88e50e8052d054305cac037290f3892c.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-wallet-8.4.0_18cf351499d15d8fe24fe65549667caa255e65be.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-analytics-8.4.0_1dd53d68ff5ad5abe1eb923d98ffdf9baf8f235f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Arman\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.2.2\285cb9c666f0f0f3dd8a1be04e1f457eb7b15113\jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.2_169375294f015532c5b58fc51ad8c0d70911f723.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-8.4.0_bd5338fff2e31636817f67f491de2131b4da78ea.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_75122d118d4a06be0b8acf0622f7f52bf67656f6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Arman\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.2_3b3f6232e74afc817324735fbd2f110d3c33c5f7.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.android.support-mediarouter-v7-23.0.0_b937020f32af60a368c9bca95229c10e87e80b19.jar" />
+    </item>
+    <item
+        jar="C:\Users\Arman\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.12\6ec0bbd3e161a73ed672284b587fd32309a86d7a\tubesock-0.0.12.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\tubesock-0.0.12_c3a9a36b6592fc71f656b595df981708a336b38e.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-nearby-8.4.0_2c38861e5915a2d150c727c93bcb1f752e588cf4.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-cast-8.4.0_c5df7ffe904536d41272cc771b6efd70c16d194c.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_8592249fa8a7a3e5532e2ce711cd96840a04ca14.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.4.0_dc7221a3a359d2742de95af6db900863c7a31efb.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\androidsdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_51a1392e31a1aece99eff56c1b68695d1a701352.jar" />
+    </item>
+    <item
+        jar="C:\Users\Arman\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-jvm\2.5.2\91731b8f5868a3e8a8a773f29b8d06b5c358f5bb\firebase-client-jvm-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\firebase-client-jvm-2.5.2_69117133f4e7f0a79890fa9b0292adf53ccc772f.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-identity-8.4.0_7c087c2a283b42c15efd650a89b0e30d58b909d8.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-panorama-8.4.0_ef5011902578c0f879e92b219de114499ff2d36c.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-games-8.4.0_ba59fc1e5f165b6985768edb3a639777a780e5d7.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-8.4.0_da40f0d17ad85b557906ab1c8f8ae9e97cf25e7d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Arman\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.2_0b43815b391be73fe86340a53a63e2c798862f16.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appinvite-8.4.0_108deb7412ab3e717307654bfb700f588adfdfd0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Arman\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.5.2\f19f10d6276aa0b380e2d05d2ab3272d693a5433\firebase-client-android-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\firebase-client-android-2.5.2_c5723cbfe763012d37d52fa5f07b4ae3f57ca77a.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_812770420fd1c4efb63d83a6cba8626d96c9ea0e.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-safetynet-8.4.0_884b72f08a76d7bb103359b94120f79c1199aa37.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-drive-8.4.0_ea92662d2216b5db40fc0822139242f659a63410.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_56b3fcda29ea0fa118ece58a6745b97ecb6be6bb.jar" />
+    </item>
+    <item
+        jar="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="D:\andrdstudio\projects\AutoLoginApp\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-8.4.0_8be0ec36b9bb5a0b37008e3f2ad61fd1ca9aa687.jar" />
+    </item>
+
+</items>

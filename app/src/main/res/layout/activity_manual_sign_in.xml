@@ -27,13 +27,14 @@
         android:layout_below="@+id/staticViewManualName"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:text="NAME"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonManualSignIn"
+        android:onClick="onSignButtonClick2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onSignButtonClick2" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

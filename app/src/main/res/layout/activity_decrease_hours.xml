@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Decrease Hours"
+        android:text="Confirm"
         android:id="@+id/decreaseHoursButton"
         android:onClick="onDecreaseHoursClick"
         android:layout_below="@+id/hoursEditTextCompetition"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hoursEditText"
-        android:hint="Decrease Robotics Hours"
+        android:hint="Meeting"
         android:textSize="25sp"
         android:inputType="number"
         android:layout_alignParentTop="true"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hoursEditTextFM"
-        android:hint="Decrease FM Hours"
+        android:hint="FM"
         android:textSize="25sp"
         android:layout_below="@+id/hoursEditText"
         android:layout_centerHorizontal="true"
@@ -47,5 +47,16 @@
         android:layout_below="@+id/hoursEditTextFM"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
-        android:hint="Decrease Competition Hours" />
+        android:hint="Competition" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Please input how many hours you would like to decrease from each category:"
+        android:id="@+id/instructView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

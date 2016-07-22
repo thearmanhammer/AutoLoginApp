@@ -15,6 +15,7 @@
         android:text="New Team ID : "
         android:id="@+id/newId"
         android:textSize="25sp"
+        android:paddingTop="13sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -24,12 +25,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/newIdEdit"
         android:textSize="25sp"
-
+        android:hint="###"
         android:textColorHint="#b3b3b3"
+        android:inputType="text"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/newId"
-        android:layout_toEndOf="@+id/newId"
-        android:inputType="text" />
+        android:layout_toEndOf="@+id/newId" />
 
     <Button
         android:layout_width="wrap_content"
@@ -45,14 +46,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Which School do you Attend?"
+        android:text="Select the School Which You Attend:"
         android:id="@+id/schoolView"
-        android:layout_below="@+id/newIdEdit"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
 
         android:textSize="25sp"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:layout_below="@+id/newIdEdit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <RadioGroup
         android:layout_width="wrap_content"
