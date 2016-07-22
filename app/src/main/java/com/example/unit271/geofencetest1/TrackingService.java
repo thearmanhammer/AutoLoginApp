@@ -68,6 +68,7 @@ public class TrackingService extends Service implements
     public boolean rangeCheckerA;
     public boolean rangeCheckerB;
     int setInitialRange;
+    boolean tracking = false;
     NotificationManager mNotificationManager;
 
     @Override
@@ -119,7 +120,7 @@ public class TrackingService extends Service implements
             thursEnd = (Integer) school.get("ThuN6N7");
         } else if(!nPer6 && nPer7) {
             normEnd = (Integer) school.get("N7");
-            wedEnd = (Integer) school.get("wedN7");
+            wedEnd = (Integer) school.get("WedN7");
             thursEnd = (Integer) school.get("ThuN7");
         } else {
             normEnd = (Integer) school.get("AEnd");
@@ -201,7 +202,7 @@ public class TrackingService extends Service implements
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
         createLocationRequest();
-
+        tracking = true;
         Log.i("TRACKINGSERVICE", "onConnectedComplete");
     }
 
@@ -212,7 +213,12 @@ public class TrackingService extends Service implements
     }
 
     protected void stopLocationUpdates() {
-        LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+            if(tracking){
+                   LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+                   tracking = false;
+            } else {
+                    
+            }
     }
 
     protected void createLocationRequest() {
