@@ -37,6 +37,7 @@ public class signInOther2 extends AppCompatActivity {
         signOther = (Button) findViewById(R.id.buttonSignOther);
         textViewWho = (TextView) findViewById(R.id.textViewWho);
         textViewWho.setText(otherName);
+        setTitle("Sign In");
         signOther.setEnabled(false);
         dataRef4 = new Firebase("https://loginapptestcc.firebaseio.com/People/" + otherName);
         dataRef3 = new Firebase("https://loginapptestcc.firebaseio.com/People/" + otherName + "/Logins");

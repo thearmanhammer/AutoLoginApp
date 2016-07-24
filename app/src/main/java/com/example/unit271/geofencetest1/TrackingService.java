@@ -213,12 +213,20 @@ public class TrackingService extends Service implements
     }
 
     protected void stopLocationUpdates() {
+<<<<<<< HEAD
+        if(tracking){
+            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+        } else {
+
+        }
+=======
             if(tracking){
                    LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
                    tracking = false;
             } else {
                     
             }
+>>>>>>> 424ce0c3d2ce9d05b95068fda3e7a5055f1c00a5
     }
 
     protected void createLocationRequest() {

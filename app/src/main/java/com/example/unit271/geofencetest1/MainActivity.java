@@ -37,6 +37,7 @@ public class MainActivity extends FragmentActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         teamNumData = getSharedPreferences(filename, 0);
+        setTitle("Citrus Circuits");
 
         numView = (TextView) findViewById(R.id.teamNumView2);
         locationSwitch = (Switch) findViewById(R.id.locationSwitch);
@@ -105,7 +106,7 @@ public class MainActivity extends FragmentActivity {
             Intent numChange = new Intent(this, ChangeTeamNumber.class);
             startActivity(numChange);
         } else {
-            Toast.makeText(getApplicationContext(), "Disable Location First.",
+            Toast.makeText(getApplicationContext(), "Please Disable Automatic Mode First",
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -115,7 +116,7 @@ public class MainActivity extends FragmentActivity {
             Intent signOther = new Intent(this, signInOther.class);
             startActivity(signOther);
         } else {
-            Toast.makeText(getApplicationContext(), "Disable Location First.",
+            Toast.makeText(getApplicationContext(), "Please Disable Automatic Mode First",
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -150,7 +151,7 @@ public class MainActivity extends FragmentActivity {
                         Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(), "Disable Location First.",
+            Toast.makeText(getApplicationContext(), "Please Disable Automatic Mode First",
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -166,7 +167,7 @@ public class MainActivity extends FragmentActivity {
                         Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(), "Disable Location First.",
+            Toast.makeText(getApplicationContext(), "Please Disable Automatic Mode First",
                     Toast.LENGTH_SHORT).show();
         }
     }

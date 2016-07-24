@@ -33,6 +33,7 @@ public class ManualSignIn extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Firebase.setAndroidContext(this);
 
+        setTitle("Sign In");
         Button button = (Button) findViewById(R.id.buttonManualSignIn);
         if(currentlySignedInRobotics){
             button.setText("Logout");

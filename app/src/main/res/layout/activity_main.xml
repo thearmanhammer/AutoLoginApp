@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Team ID : "
+        android:text="Name:"
         android:id="@+id/teamNumView"
         android:textSize="30sp"
         android:layout_alignParentTop="true"
@@ -30,7 +30,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change ID"
+        android:text="Modify Profile"
         android:id="@+id/numButton"
         android:onClick="changeNumber"
         android:layout_alignParentBottom="true"
@@ -55,7 +55,7 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enable"
+        android:text="Automatic Mode"
         android:id="@+id/locationSwitch"
         android:layout_marginBottom="46dp"
         android:checked="true"

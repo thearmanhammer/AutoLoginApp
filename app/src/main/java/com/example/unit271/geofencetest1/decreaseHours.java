@@ -27,6 +27,7 @@ public class decreaseHours extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_decrease_hours);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setTitle("Decrease Hours");
         Firebase.setAndroidContext(this);
         teamID = getIntent().getStringExtra("com.example.unit271.geofencetest1/MainActivity");
         dataRef6 = new Firebase("https://loginapptestcc.firebaseio.com/People/" + teamID);

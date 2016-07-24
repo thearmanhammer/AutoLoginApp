@@ -46,6 +46,7 @@ public class signInOther extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in_other);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Firebase.setAndroidContext(this);
+        setTitle("Make Your Selection");
         teamNumData = getSharedPreferences(filename, 0);
         teamNameList = new ArrayList<String>();
         formattedList = new ArrayList<String>();

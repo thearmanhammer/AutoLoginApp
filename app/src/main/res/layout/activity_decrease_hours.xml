@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/hoursEditText"
         android:hint="Meeting"
+        android:textAlignment="center"
         android:textSize="25sp"
         android:inputType="number"
         android:layout_alignParentTop="true"
@@ -36,12 +37,14 @@
         android:id="@+id/hoursEditTextFM"
         android:hint="FM"
         android:textSize="25sp"
+        android:textAlignment="center"
         android:layout_below="@+id/hoursEditText"
         android:layout_centerHorizontal="true"
         android:inputType="number" />
 
     <EditText
         android:layout_width="wrap_content"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:id="@+id/hoursEditTextCompetition"
         android:layout_below="@+id/hoursEditTextFM"
@@ -52,6 +55,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Please input how many hours you would like to decrease from each category:"
         android:id="@+id/instructView"
