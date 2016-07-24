@@ -144,7 +144,7 @@ public class ChangeTeamNumber extends AppCompatActivity {
             }
             editor.putString("newIDKey", changeToString);
             editor.commit();
-            Toast.makeText(getApplicationContext(), ("New ID : " + changeToString),
+            Toast.makeText(getApplicationContext(), ("New Profile : " + changeToString),
                     Toast.LENGTH_SHORT).show();
             Intent returnIntent = new Intent(this, MainActivity.class);
             startActivity(returnIntent);
